@@ -10,19 +10,13 @@
         const TABLENAME = 'fornecedores';
     }
 
-    class Produto extends Record{
-        const TABLENAME = 'produtos';
-    }
-
     $p = new Pessoa;
     $p->load(1);
     print '<br>'.PHP_EOL;
-
-    $P->nome = 'maria da silva';
-    $P->endereco = 'rua das flores';
-    $P->numero = '123';
+    $p->nome = 'Maria da Silva';
+    $p->endereco = 'Rua das Flores';
+    $p->numero = '123';
     $p->save();
-
     print '<br>'.PHP_EOL;
 
     $p->delete(3);
