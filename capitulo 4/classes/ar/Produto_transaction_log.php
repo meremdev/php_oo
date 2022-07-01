@@ -47,8 +47,9 @@
                 "preco_venda = '{$this->preco_venda}', codigo_barras = '{$this->codigo_barras}', data_cadastro = '{$this->data_cadastro}',".
                 "origem = '{$this->origem}' WHERE id = '{$this->id}'";
             }
-            print "$sql<br>\n";
+            //print "$sql<br>\n";
             $conn = Transaction::get();
+            Transaction::log($sql);
             return $conn->exec($sql); //executa a instrução sql
         }
 

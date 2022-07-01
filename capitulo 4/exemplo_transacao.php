@@ -1,5 +1,5 @@
 <?php
-    require_once 'classes/ar/Produto_transaction.php';
+    require_once 'classes/ar/Produto.php';
     require_once 'classes/api/Connection.php';
     require_once 'classes/api/Transaction.php';
 
@@ -27,7 +27,7 @@
         $p2->estoque = 10;
         $p2->preco_custo = 18;
         $p2->preco_venda = 29;
-        $p2->codigo_barras = '73423453234234';
+        $p2->codigo_barras = '73450345423423';
         $p2->data_cadastro = date('Y-m-d');
         $p2->origem = 'I';
         $p2->save();
@@ -35,6 +35,6 @@
         Transaction::close();
 
     }catch(Exception $e){
-        Transaction::rollBack();
+        Transaction::rollback();
         print $e->getMessage();
     }
