@@ -1,0 +1,2 @@
+2022-07-01 18:26:33 :: inserindo produto novo
+2022-07-01 18:26:33 :: INSERT INTO produto (id, descricao, estoque, preco_custo, preco_venda, codigo_barras, data_cadastro, origem)VALUES ('19', 'Chocolate amargo', '80', '4', '7', '68323452334234', '2022-07-01', 'N')

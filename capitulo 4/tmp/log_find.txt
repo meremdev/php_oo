@@ -1,0 +1,2 @@
+2022-07-02 16:13:11 :: Buscando um Produto
+2022-07-02 16:13:11 :: SELECT * FROM produto WHERE id=2

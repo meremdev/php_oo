@@ -7,7 +7,7 @@
 
     try{
         Transaction::open('estoque');
-        Transaction::setLogger(new LoggerTXT('/tmp/log.txt'));
+        Transaction::setLogger(new LoggerTXT('tmp/log.txt'));
         Transaction::log('inserindo produto novo');
 
         $p1 = new Produto;

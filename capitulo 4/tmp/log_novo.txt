@@ -1,0 +1,3 @@
+2022-07-02 16:07:00 :: Inserindo produto novo
+2022-07-02 16:07:00 :: SELECT max(id) FROM produto
+2022-07-02 16:07:00 :: INSERT INTO produto (descricao, estoque, preco_custo, preco_venda, codigo_barras, data_cadastro, origem, id ) values ('Cerveja artesanal IPA', 50, 8, 12, '13523453234234', '2022-07-02', 'N', 26 )

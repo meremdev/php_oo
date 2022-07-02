@@ -1,5 +1,5 @@
 <?php
-    abstract class Record{
+    abstract class Record {
         protected $data; // array contendo dados do objeto
 
         public function __construct($id = null)
@@ -21,11 +21,12 @@
         }
 
         public function __set($prop, $value){
+            
             if(method_exists($this, 'set_'.$prop)){
                 // executa o metodo set_<propriedade>
-                call_user_func(array($this, 'set_'.$prop));
+                call_user_func(array($this, 'set_'.$prop), $value);
             }else{
-                if($value === null){
+                if($value === NULL){
                     unset($this->data[$prop]);
                 }else{
                     $this->data[$prop] = $value; // atribui o valor da propridade
@@ -72,11 +73,12 @@
                     $this->id = $this->getLast() +1;
                     $prepared['id'] = $this->id;
                 }
+
                 //cria uma instrução de insert 
-                $sql = "INSERT INTO {$this->getEntity()}".
-                '('. implode(',', array_keys($prepared)).')'.
-                'values'.
-                '('.implode(',', array_values($prepared)).')';
+                $sql = "INSERT INTO {$this->getEntity()} ".
+                '('. implode(', ', array_keys($prepared)).' )'.
+                ' values '.
+                '('.implode(', ', array_values($prepared)).' )';
 
             }else{
                 // monta a string de update
@@ -89,8 +91,8 @@
                        }
                     }
                 }
-                $sql.= 'SET'.implode(',',$set);
-                $sql.= 'WHERE id='.(int) $this->data['id'];
+                $sql.= ' SET '.implode(',',$set);
+                $sql.= ' WHERE id='.(int) $this->data['id'];
             }
 
             //obtem transação ativa
@@ -99,7 +101,7 @@
                 $result = $conn->exec($sql);
                 return $result;
             }else{
-                throw new Exception('Não há trnasação ativa');
+                throw new Exception('Não há transação ativa');
             }
  
         }
@@ -107,7 +109,7 @@
         public function load($id){
             //monta instrução de select
             $sql = "SELECT * FROM {$this->getEntity()}";
-            $sql.= 'WHERE id='.(int) $id;
+            $sql.= ' WHERE id='.(int) $id;
 
             //obtem transação ativa
             if($conn = Transaction::get()){
@@ -123,7 +125,7 @@
                 return $object;
 
             }else{
-                throw new Exception('não há trnasação ativa');
+                throw new Exception('não há transação ativa');
             }
         }
 
@@ -133,7 +135,7 @@
 
             //monta a string de update
             $sql = "DELETE FROM {$this->getEntity()}";
-            $sql .= 'WHERE id='.(int) $this->data['id'];
+            $sql .= ' WHERE id='.(int) $this->data['id'];
 
             //obtem transação ativa
             if($conn = Transaction::get()){

@@ -1,0 +1,4 @@
+2022-07-02 16:13:48 :: Alterando um produto
+2022-07-02 16:13:48 :: SELECT * FROM produto WHERE id=2
+2022-07-02 16:13:48 :: SELECT * FROM produto WHERE id=2
+2022-07-02 16:13:48 :: UPDATE produto SET descricao = 'Vinho Brasileiro Tinto Merlot',estoque = 10,preco_custo = '12',preco_venda = '18',codigo_barras = '13523453234234',data_cadastro = '2022-06-30',origem = 'N' WHERE id=2

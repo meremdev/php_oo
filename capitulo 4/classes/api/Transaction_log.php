@@ -3,6 +3,8 @@
         private static $conn; // conexão ativa
         private static $logger; // objeto de log
 
+        private function __construct(){}
+
         public static function open($database){
             if(empty(self::$conn)){
                 self::$conn = Connection::open($database);
@@ -29,7 +31,7 @@
             }
         }
 
-        public static function setLogger(logger $logger){
+        public static function setLogger(Logger $logger){
             self::$logger = $logger;
         }
 
