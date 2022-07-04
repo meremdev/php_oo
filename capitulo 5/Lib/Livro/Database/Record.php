@@ -3,7 +3,7 @@
 
     use Exception;
 
-    abstract class Record implements RecordInterface {
+    abstract class Record {
         protected $data; // array contendo dados do objeto
 
         public function __construct($id = null)
