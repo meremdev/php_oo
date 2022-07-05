@@ -19,3 +19,5 @@
             $pagina->show();
         }
     }
+
+    echo '<link rel="stylesheet" href="App/Templates/css/bootstrap.min.css">';

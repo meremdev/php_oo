@@ -2,7 +2,15 @@
 
 namespace Livro\Control;
 
-class Page {
+use Livro\Widgets\Base\Element;
+
+class Page extends Element {
+
+    public function __construct()
+    {
+        parent::__construct('div');
+    }
+
     public function show(){
         if($_GET){
             $class = isset($_GET['class']) ? $_GET['class'] : NULL;
@@ -15,5 +23,8 @@ class Page {
                 }
             }
         }
+
+        parent::show();
+
     }
 }
